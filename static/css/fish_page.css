@@ -1,0 +1,212 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
+/*Fish Area*/
+.fish {
+  width:100px;
+  height:100px;
+  top:50%;
+  right:50%;
+  background:tomato;
+  position:absolute;
+  animation:10s fly infinite linear;
+  transform:translateX(-50%);
+}
+.shadow {
+  width:100px;
+  height:20px;
+  background:rgba(0,0,0,.15);
+  position:absolute;
+  top:350px;
+  animation:10s fly2 infinite linear;
+  border-radius:50%;
+}
+span:nth-of-type(1) {
+  width:10px;
+  height:10px;
+  background:white;
+  border-radius:50%;
+  z-index:9;
+  display:inline-block;
+  position:absolute;
+  margin:70px 0 0 7px;
+}
+span:nth-of-type(2) {
+  width:50px;
+  height:50px;
+  background:tomato;
+  position:absolute;
+  top:-25px;
+  left:70px;
+}
+span:nth-of-type(3) {
+  width:50px;
+  height:50px;
+  background:lightcyan;
+  position:absolute;
+  top:-50px;
+  left:95px;
+}
+/* Fish fly */
+@keyframes fly {
+  0%,
+  100% {
+    right:10%;
+    transform:rotateY(180deg) rotate(45deg);
+    top:150px;
+  }
+  1% {
+    transform:rotateY(0deg) rotate(45deg);
+  }
+  25% {
+    top:180px;
+  }
+  49% {
+    transform:rotateY(0deg) rotate(45deg);
+  }
+  50% {
+    right:90%;
+    top:150px;
+    transform:rotateY(180deg) rotate(45deg);
+  }
+  75% {
+    top:180px;
+  }
+}
+
+/* Shadow fly */
+@keyframes fly2 {
+  0%,
+  100% {
+    right:10%;
+    transform:rotateY(180deg);
+    width:60px;
+    height:10px;
+  }
+  1% {
+    transform:rotateY(0deg);
+  }
+  25% {
+    width:100px;
+    height:20px;
+  }
+  49% {
+    transform:rotateY(0deg);
+  }
+  50% {
+    right:90%;
+    transform:rotateY(180deg);
+    width:60px;
+    height:10px;
+  }
+  75% {
+    width:100px;
+    height:20px;
+  }
+}
+
+/* credits area */
+#credits{
+  position:absolute;
+  width:100%;
+  margin: auto;
+  bottom:0;
+  margin-bottom:20px;
+  font-family:'Open Sans', sans-serif;
+  color:#71b583;
+  font-size:1.8em;
+  text-transform: uppercase;
+  text-align : center;
+}
+#credits a {
+  color:#71b583;
+}
+
+/*Title Area*/
+.title {
+    font-family: 'Libre Baskerville',serif;
+    transform: scale(0);
+    filter: blur(10px);
+    text-align: center;
+  	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+h1 {
+  font-size: 2em;
+  margin-top: 50px;
+  opacity: 1;
+  position: relative;
+  color: #71b583;
+  font-weight: 400;
+  text-align: center;
+  margin-right: 10px;
+  padding-bottom: 10px;
+  display: inline-block;
+  border-bottom: 3px solid #71b583;
+  letter-spacing: 10px;
+
+  > div {
+    position: relative;
+    display: inline-block;
+    + div {
+      display: block;
+    }
+  }
+  span {
+    letter-spacing: normal;
+    display: block;
+    margin-bottom: 10px;
+    font-size: .5em;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+    &:before, &:after {
+      content: "";
+      width: 43%;
+      height: 3px;
+      border-radius: 5px;
+      background: #71b583;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+      top: .5em;
+    }
+    &:after {
+      left: 0;
+    }
+  }
+}
+p {
+font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+  color: #71b583;
+  margin-top: 14px;
+  letter-spaceing: 5px;
+  line-height:1.2em;
+
+}
+
+/*ANimation stuff*/
+.title {
+  animation-name: zoomIn;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(.3);
+    filter: blur(10px);
+  }
+  40% {
+    transform: scale(1);
+  }
+  100% {
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
