@@ -2,10 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="{{ url_for('static', filename='js/test.js') }}"></script>
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fish_page.css') }}">
+    <title>Home Page</title>
 </head>
 <body>
-    <h1>Welcome</h1>
+
+<div class="fish">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<div class="shadow">
+</div>
+
+<div class="title">
+  <h1>
+    The Artificial Intelligence Of Fish
+  </h1>
+  <p> Nicola Landro </p>
+</div>
+
+<div id="credits">
+    <p><a href="/add_supervisioned_data" target="blank">Add new supervised data</a> | <a href="/fish_ai" target="blank">Use
+        the AI</a>
+    </p>
+</div>
 </body>
 </html>
