@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Load Data for AI</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/image_load.js') }}"></script>
+</head>
+<body>
+<input id='image_loader' type='file' accept='image/*'><br>
+<img id='output' style='height: 100%; width: 100%; object-fit: fill'>
+</body>
+</html>
