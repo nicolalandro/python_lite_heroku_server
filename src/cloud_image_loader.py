@@ -18,6 +18,9 @@ class CloudImageLoader(object):
         os.remove(testfile)
         return result
 
+    def get_dataset_list(self):
+        return ['a', 'b', 'c']
+
     def _get_progressive_number(self):
         try:
             json_list = str(self.pc.listfolder(folderid=0)).replace("'", '"')
