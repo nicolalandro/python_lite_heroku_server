@@ -26,7 +26,27 @@ function isInputCorrect(species, image){
 }
 
 function toastSuccess(msg){
-    console.log(msg)
+    var errorElement = '<div id="error" class="wrapper">';
+    errorElement += '<div class="toast-message success">';
+    errorElement += '<div class="quote"></div>';
+    errorElement += '<a class="close" href="#success">&times;</a>';
+    errorElement += '<div class="inner-left">';
+    errorElement += '<svg version="1.1" id="icon_success" class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">';
+    errorElement += '<path fill="#fff" d="M24,0C10.745,0,0,10.744,0,24s10.745,24,24,24s24-10.744,24-24S37.255,0,24,0z M21.5,34l-11-11l3.5-3.5l7.5,4.5L35,13.5l3.5,3.5L21.5,34z"/>';
+    errorElement += '</svg>';
+    errorElement += '</div>';
+    errorElement += '<div class="inner-right">';
+    errorElement += '<h1>';
+    errorElement += 'Success';
+    errorElement += '</h1>';
+    errorElement += '<p>';
+    errorElement += msg;
+    errorElement += '</p>';
+    errorElement += '</div>';
+    errorElement += '</div>';
+    errorElement += '</div>';
+    $( "body" ).append( errorElement );
+    addToastListener();
 }
 
 function toastError(title,msg){
