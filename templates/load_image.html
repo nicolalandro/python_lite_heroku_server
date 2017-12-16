@@ -2,22 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HTM5 picture dropzone</title>
+    <title>add_supervisioned_data</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/image_load.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/toast_alert.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/image_load.js') }}"></script>
 </head>
 
 <body>
 <div class="text-input">
-  <input type="text" id="input1" placeholder="Typing here the fish specie">
-  <label for="input1">Fish Specie</label>
+    <input type="text" id="fish_specie" placeholder="Typing here the fish specie">
+    <label for="fish_specie">Fish Specie</label>
 </div>
 <div id="dropzone">
     <div>Click or Drag Photo</div>
-    <input type="file" accept="image/png, application/pdf"/>
+    <input type="file" accept="image/png"/>
 </div>
-
+<div class='container'>
+    <button id="send_json" class='pulse-button'>Send</button>
+</div>
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/image_load.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/dropzone.js') }}"></script>
 </body>
 </html>
