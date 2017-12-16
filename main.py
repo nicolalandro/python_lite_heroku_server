@@ -16,6 +16,12 @@ def add_supervisioned_data():
     return render_template('load_image.html')
 
 
+@app.route('/show_dataset')
+def show_dataset():
+    posts = CloudImageLoader().get_dataset_list()
+    return render_template('show_dataset.html', posts=posts)
+
+
 @app.route('/fish_ai')
 def use_fish_ai():
     return render_template('fish_ai.html')
