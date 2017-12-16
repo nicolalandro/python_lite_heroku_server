@@ -24,7 +24,9 @@ function isInputCorrect(species, image){
 
     return species && species.length > 0 && image && image.length > 0;
 }
-
+///////////////////////////////
+//       TOAST AREA
+///////////////////////////////
 function toastSuccess(msg){
     var errorElement = '<div id="error" class="wrapper">';
     errorElement += '<div class="toast-message success">';
