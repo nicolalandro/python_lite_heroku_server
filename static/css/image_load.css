@@ -138,7 +138,7 @@ body {
 .container {
   width: 200px;
   height: 100%;
-   margin: 50px auto;
+   margin: 80px auto;
   -webkit-perspective: 1000;
   -webkit-backface-visibility: hidden;
 }
@@ -171,6 +171,11 @@ body {
 
 .pulse-button:hover {
   -webkit-animation: none;
+}
+
+.pulse-button:active {
+  -webkit-animation: none;
+  transform: scale(.9);
 }
 
 @-webkit-keyframes pulse {
