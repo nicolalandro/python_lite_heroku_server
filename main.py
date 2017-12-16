@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 
 # webapp
 from src.cloud_image_loader import CloudImageLoader
@@ -23,7 +23,8 @@ def use_fish_ai():
 
 @app.route('/api/load_image_to_cloud', methods=['POST'])
 def load_image_to_cloud():
-    return jsonify(CloudImageLoader().list_folder())
+    json_content = str(request.get_json())
+    return jsonify(CloudImageLoader().add_file(json_content))
 
 
 if __name__ == '__main__':
