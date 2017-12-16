@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 # webapp
 from src.cloud_image_loader import CloudImageLoader
@@ -20,9 +20,10 @@ def add_supervisioned_data():
 def use_fish_ai():
     return render_template('fish_ai.html')
 
+
 @app.route('/api/load_image_to_cloud')
 def load_image_to_cloud():
-    return CloudImageLoader().load_image()
+    return jsonify(CloudImageLoader().list_folder())
 
 
 if __name__ == '__main__':
