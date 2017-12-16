@@ -19,10 +19,13 @@ class CloudImageLoader(object):
         return result
 
     def _get_progressive_number(self):
-        json_list = str(self.pc.listfolder(folderid=0)).replace("'", '"')
-        json_list = json_list.replace("False", '"False"').replace("True", '"True"')
-        lis = json.loads(json_list)
-        numer_str = lis['metadata']['contents'][-1]['name'].replace('.json', '')
-        integer_progressive_number = int(numer_str) + 1
-        print(integer_progressive_number)
-        return integer_progressive_number
+        try:
+            json_list = str(self.pc.listfolder(folderid=0)).replace("'", '"')
+            json_list = json_list.replace("False", '"False"').replace("True", '"True"')
+            lis = json.loads(json_list)
+            numer_str = lis['metadata']['contents'][-1]['name'].replace('.json', '')
+            integer_progressive_number = int(numer_str) + 1
+            print(integer_progressive_number)
+            return integer_progressive_number
+        except:
+            return 0
