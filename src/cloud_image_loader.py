@@ -9,7 +9,7 @@ class CloudImageLoader(object):
 
     def add_file(self, json_body):
         number = self._get_progressive_number()
-        testfile = os.path.join(os.path.dirname(__file__), 'temp', str(number) + '.json')
+        testfile = os.path.join(os.path.dirname(__file__), 'file_to_upload', str(number) + '.json')
         print(testfile)
         f = open(testfile, "w+")
         f.write(json_body)
