@@ -76,15 +76,23 @@ header a.hide-list{
 }
 
 .wrapper .box{
+    box-sizing: border-box;
 	float:left;
-	width:100px;
-	height:100px;
+	width:300px;
+	height:300px;
 	margin:0 10px 10px 0;
 	background-color:#CCCCCC;
 	-webkit-transition:all 1.0s ease;
 	-moz-transition:all 1.0s ease;
 	transition:all 1.0s ease;
 	transition:all 1.0s ease;
+}
+
+.wrapper img {
+  border-radius: 10px;
+  vertical-align: center;
+  max-width8: 70%;
+  max-height: 70%;
 }
 
 .wrapper.list-mode .container{
