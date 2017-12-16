@@ -21,7 +21,7 @@ def use_fish_ai():
     return render_template('fish_ai.html')
 
 
-@app.route('/api/load_image_to_cloud')
+@app.route('/api/load_image_to_cloud', methods=['POST'])
 def load_image_to_cloud():
     return jsonify(CloudImageLoader().list_folder())
 
