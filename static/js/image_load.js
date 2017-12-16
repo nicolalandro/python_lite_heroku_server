@@ -10,9 +10,29 @@ function clickSendImage(d){
     var species = $('#fish_specie').val();
     var image = $('#dropzone').find('img').attr('src');
     if(isInputCorrect(species, image)){
-        toastSuccess("correct")
+        var from_data = {'specie':species, 'img':image};
+        $.ajax({
+                        url: 			"/api/load_image_to_cloud",
+                        type: 			'POST',
+                        data: 			JSON.stringify(from_data),
+                        contentType:    "application/json; charset=utf-8",
+                        dataType:       "json",
+                        complete:       completeSendImage,
+                        success: 		successSendImage,
+                        error:          errorSendImage
+                    });
     }
 }
+
+function successSendImage(data){
+    toastSuccess(JSON.stringify(data));
+};
+function completeSendImage(){
+    console.log("complete");
+};
+function errorSendImage(xhr){
+    toastError(xhr.status, xhr.statusText);
+};
 
 function isInputCorrect(species, image){
     if( !(species && species.length > 0) ){
