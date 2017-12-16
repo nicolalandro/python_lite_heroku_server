@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Dataset</title>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/show_dataset.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/show_dataset.js') }}"></script>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <a href="javascript:void(0)" class="show-list"><i class="fa fa-th-list"></i></a>
+            <a href="javascript:void(0)" class="hide-list"><i class="fa fa-th"></i></a>
+        </header>
+        <div class="container">
+            {% for post in posts %}
+            <div class="box">
+                      <h1> {{ post }} </h1>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>
