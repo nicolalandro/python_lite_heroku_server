@@ -11,7 +11,7 @@ class CloudImageLoader(object):
         number = self._get_progressive_number()
         testfile = os.path.join(os.path.dirname(__file__), 'temp', str(number) + '.json')
         print(testfile)
-        f = open(testfile, "w")
+        f = open(testfile, "w+")
         f.write(json_body)
         f.close()
         result = self.pc.uploadfile(files=[testfile])
