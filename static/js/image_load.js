@@ -7,7 +7,6 @@ function init(){
 }
 
 function clickSendImage(d){
-    console.log("send image...")
     var species = $('#fish_specie').val();
     var image = $('#dropzone').find('img').attr('src');
     if(isInputCorrect(species, image)){
@@ -17,10 +16,10 @@ function clickSendImage(d){
 
 function isInputCorrect(species, image){
     if( !(species && species.length > 0) ){
-        toastError("No species found")
+        toastError("No species found", "Please insert the specie of fish in image that you load.")
     }
     if( !(image && image.length > 0) ) {
-        toastError("No image found")
+        toastError("No image found", "Please select an image from your computer.")
     }
 
     return species && species.length > 0 && image && image.length > 0;
@@ -30,6 +29,47 @@ function toastSuccess(msg){
     console.log(msg)
 }
 
-function toastError(msg){
-    console.log(msg)
+function toastError(title,msg){
+    var errorElement = '<div id="error" class="wrapper">';
+    errorElement += '<div class="toast-message error">';
+    errorElement += '<div class="quote"></div>';
+    errorElement += '<a class="close" href="#error">&times;</a>';
+    errorElement += '<div class="inner-left">';
+    errorElement += '<svg version="1.1" id="error1" class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">';
+    errorElement += '<path fill="#1E2832" d="M24,0C10.744,0,0,10.744,0,24s10.744,24,24,24s24-10.744,24-24S37.256,0,24,0z M36.548,31.952l-4.596,4.596 L24,28.596l-7.952,7.952l-4.596-4.596L19.404,24l-7.952-7.952l4.596-4.597L24,19.404l7.952-7.953l4.596,4.597L28.596,24 L36.548,31.952z"/>';
+    errorElement += '</svg>';
+    errorElement += '</div>';
+    errorElement += '<div class="inner-right">';
+    errorElement += '<h1>';
+    errorElement += title;
+    errorElement += '</h1>';
+    errorElement += '<p>';
+    errorElement += msg;
+    errorElement += '</p>';
+    errorElement += '</div>';
+    errorElement += '</div>';
+    errorElement += '</div>';
+    $( "body" ).append( errorElement );
+    addToastListener();
 }
+
+function addToastListener(){
+    var toast = $('.toast-message');
+    setTimeout(function() {
+        dispose($('.wrapper'));
+     }, 10000);
+    if(toast.length) {
+        toast.find('.close').on('click', function(e) {
+            e.preventDefault();
+            dispose($(this).closest('.wrapper'))
+        });
+    }
+}
+
+function dispose(el) {
+    $.when(el.animate({ 'opacity': 0}, 'slow', function() {
+        $(this).slideUp('slow')
+     })).done(function() {
+        $(this).remove();
+     });
+  }
