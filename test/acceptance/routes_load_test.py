@@ -1,14 +1,32 @@
 import unittest
 
+import os
+
 import main
+
+INDEX_FILENAME = os.path.join(os.path.dirname(__file__), '../templates/index.html')
 
 
 class BasicTestCase(unittest.TestCase):
 
     def test_index(self):
-        """inital test. ensure flask was set up correctly"""
         tester = main.app.test_client(self)
         response = tester.get('/', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+
+    def test_add_supervisioned_data(self):
+        tester = main.app.test_client(self)
+        response = tester.get('/add_supervisioned_data', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+
+    def test_show_dataset(self):
+        tester = main.app.test_client(self)
+        response = tester.get('/show_dataset', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+
+    def test_fish_ai(self):
+        tester = main.app.test_client(self)
+        response = tester.get('/fish_ai', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
 
