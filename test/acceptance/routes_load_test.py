@@ -1,13 +1,9 @@
 import unittest
 
-import os
-
 import main
 
-INDEX_FILENAME = os.path.join(os.path.dirname(__file__), '../templates/index.html')
 
-
-class BasicTestCase(unittest.TestCase):
+class RoutesResponseCorrectlyTestCase(unittest.TestCase):
 
     def test_index(self):
         tester = main.app.test_client(self)
