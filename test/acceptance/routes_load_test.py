@@ -29,6 +29,11 @@ class BasicTestCase(unittest.TestCase):
         response = tester.get('/fish_ai', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
+    def test_api_load_image_to_cloud(self):
+        tester = main.app.test_client(self)
+        response = tester.post('/api/load_image_to_cloud', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+
 
 if __name__ == '__main__':
     unittest.main()
