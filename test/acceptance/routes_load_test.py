@@ -9,6 +9,7 @@ class RoutesResponseCorrectlyTestCase(unittest.TestCase):
         tester = main.app.test_client(self)
         response = tester.get('/', content_type='html/text')
         self.assertEqual(response.status_code, 200)
+        self.assertIn(b'The Artificial Intelligence Of Fish', response.data)
 
     def test_add_supervisioned_data(self):
         tester = main.app.test_client(self)
