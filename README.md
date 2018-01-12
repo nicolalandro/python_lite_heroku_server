@@ -10,5 +10,12 @@ This is a lite heroku server that run python
     $ pip install -r requirements-test.txt
     
 ## How to USE the pro
-    $ heroku logs --app pythonlightserverservices
-    $ heroku run bash --app pythonlightserverservices
+    $ heroku logs --app fishserverapi
+    $ heroku run bash --app fishserverapi
+    
+## Deploy Steps
+* click deploy on heroku interface
+* execute:
+
+
+    $ heroku run bash --app fishserverapi -c "python set_pcloud_credential.py <uname> <password>"
