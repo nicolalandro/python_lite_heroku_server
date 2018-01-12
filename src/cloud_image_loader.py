@@ -5,7 +5,12 @@ from pcloud import PyCloud
 
 class CloudImageLoader(object):
     def __init__(self):
-        self.pc = PyCloud('nicolaxx94@live.it', 'cloudperimmagini')
+        credential_path = os.path.join(os.path.dirname(__file__), 'file_to_upload', "pcloud.credential")
+        with open(credential_path, 'r') as credential_file:
+            credential_array = credential_file.read().split(',')
+        uname = credential_array[0]
+        password = credential_array[1]
+        self.pc = PyCloud(uname, password)
 
     def add_file(self, json_body):
         number = self._get_progressive_number()
