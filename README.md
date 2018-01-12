@@ -2,8 +2,8 @@
 This is a lite heroku server that run python
 
 ## How to run
-    $ export pcloud_uname="nicolaxx94@live.it"
-    $ export pcloud_password="cloudperimmagini"
+    $ export pcloud_uname="<your_uname>"
+    $ export pcloud_password="<your_password>"
     $ pip install -r requirements.txt
     $ gunicorn main:app --log-file=-
 
