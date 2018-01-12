@@ -4,10 +4,8 @@ from pcloud import PyCloud
 
 
 def loadCredentialFromFilePath(credential_path):
-    with open(credential_path, 'r') as credential_file:
-        credential_array = credential_file.read().split(',')
-    uname = credential_array[0]
-    password = credential_array[1]
+    uname = os.environ['pcloud_uname']
+    password = os.environ['pcloud_password']
     return uname, password
 
 
