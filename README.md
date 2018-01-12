@@ -2,6 +2,8 @@
 This is a lite heroku server that run python
 
 ## How to run
+    $ export pcloud_uname="nicolaxx94@live.it"
+    $ export pcloud_password="cloudperimmagini"
     $ pip install -r requirements.txt
     $ gunicorn main:app --log-file=-
 
@@ -14,8 +16,10 @@ This is a lite heroku server that run python
     $ heroku run bash --app fishserverapi
     
 ## Deploy Steps
+* Config Variables on heroku
+  * pcloud_uname, with pcloud mail
+  * pcloud_password, with pcloud password
 * click deploy on heroku interface
-* execute:
 
 
-    $ heroku run bash --app fishserverapi -c "python set_pcloud_credential.py <uname> <password>"
+

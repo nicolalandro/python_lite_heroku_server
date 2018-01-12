@@ -3,7 +3,7 @@ import os
 from pcloud import PyCloud
 
 
-def loadCredentialFromFilePath(credential_path):
+def loadCredentialFromFilePath():
     uname = os.environ['pcloud_uname']
     password = os.environ['pcloud_password']
     return uname, password
@@ -11,8 +11,7 @@ def loadCredentialFromFilePath(credential_path):
 
 class CloudImageLoader(object):
     def __init__(self):
-        credential_path = os.path.join(os.path.dirname(__file__), 'file_to_upload', "pcloud.credential")
-        uname, password = loadCredentialFromFilePath(credential_path)
+        uname, password = loadCredentialFromFilePath()
         self.pc = PyCloud(uname, password)
 
     def add_file(self, json_body):
