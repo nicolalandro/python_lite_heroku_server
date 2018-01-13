@@ -88,11 +88,18 @@ header a.hide-list{
 	transition:all 1.0s ease;
 }
 
-.wrapper img {
+.wrapper .box img {
   border-radius: 10px;
   vertical-align: center;
   max-width8: 120px;
   max-height: 120px;
+}
+
+.wrapper.list-mode .box img {
+  border-radius: 10px;
+  vertical-align: center;
+  max-width8: 200px;
+  max-height: 200px;
 }
 
 .wrapper.list-mode .container{
