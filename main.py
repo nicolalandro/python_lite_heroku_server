@@ -18,7 +18,7 @@ def add_supervisioned_data():
 
 @app.route('/show_dataset')
 def show_dataset():
-    posts = CloudImageLoader().get_dataset_list()
+    posts = CloudImageLoader().get_dataset_list
     return render_template('show_dataset.html', posts=posts)
 
 
