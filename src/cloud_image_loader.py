@@ -28,24 +28,20 @@ class CloudImageLoader(object):
 
     @property
     def get_dataset_list(self):
-        lis = self._list_remote_folder()
-        filename_list = lis['metadata']['contents']
         complete_file_list = list()
+
+        filename_list = self._list_remote_folder()['metadata']['contents']
 
         uname = os.environ['pcloud_uname'].replace('@', '%40')
         password = os.environ['pcloud_password']
         link = 'pcloud://' + uname + ':' + password + '@/'
-        with opener.open_fs(link) as openfs:
+
+        with opener.open_fs(link) as pcloudfs:
             i = 0
             for file_data in filename_list:
                 file_name = file_data['name']
                 file_size = file_data['size']
-                file = openfs.openbin("/" + file_name, mode="r")
-
-                json_string = file.read(file_size).decode('utf-8').replace("'", '"')
-                json_obj = json.loads(json_string)
-                specie = json_obj['specie']
-                img = json_obj['img']
+                specie, img = self._read_from_file(pcloudfs, file_name, file_size)
 
                 dict = {
                     'name': file_name,
@@ -71,3 +67,11 @@ class CloudImageLoader(object):
         json_list = json_list.replace("False", '"False"').replace("True", '"True"')
         lis = json.loads(json_list)
         return lis
+
+    def _read_from_file(self, pcloudfs, file_name, file_size):
+        file = pcloudfs.openbin("/" + file_name, mode="r")
+        json_string = file.read(file_size).decode('utf-8').replace("'", '"')
+        json_obj = json.loads(json_string)
+        specie = json_obj['specie']
+        img = json_obj['img']
+        return specie, img
