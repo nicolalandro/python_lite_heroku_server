@@ -40,7 +40,6 @@ class CloudImageLoader(object):
             for file_data in filename_list:
                 file_name = file_data['name']
                 file_size = file_data['size']
-                print(file_name, " ", file_size)
                 file = openfs.openbin("/" + file_name, mode="r")
 
                 json_string = file.read(file_size).decode('utf-8').replace("'", '"')
