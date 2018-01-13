@@ -96,10 +96,13 @@ header a.hide-list{
 }
 
 .wrapper.list-mode .box img {
+  padding-top:10px;
   border-radius: 10px;
-  vertical-align: center;
-  max-width8: 200px;
-  max-height: 200px;
+  max-width8: 280px;
+  max-height: 280px;
+  vertical-align: middle;
+  horizontal-align: middle;
+  display: table-cell;
 }
 
 .wrapper.list-mode .container{
@@ -108,4 +111,10 @@ header a.hide-list{
 
 .wrapper.list-mode .box{
 	width:100%;
+	display: table
+}
+
+.wrapper.list-mode .box h1.title{
+    vertical-align: middle;
+    display: table-cell;
 }
