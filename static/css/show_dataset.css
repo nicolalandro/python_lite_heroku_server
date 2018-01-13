@@ -91,8 +91,8 @@ header a.hide-list{
 .wrapper img {
   border-radius: 10px;
   vertical-align: center;
-  max-width8: 70%;
-  max-height: 70%;
+  max-width8: 120px;
+  max-height: 120px;
 }
 
 .wrapper.list-mode .container{
