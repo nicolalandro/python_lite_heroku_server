@@ -88,11 +88,21 @@ header a.hide-list{
 	transition:all 1.0s ease;
 }
 
-.wrapper img {
+.wrapper .box img {
   border-radius: 10px;
   vertical-align: center;
-  max-width8: 70%;
-  max-height: 70%;
+  max-width8: 120px;
+  max-height: 120px;
+}
+
+.wrapper.list-mode .box img {
+  padding-top:10px;
+  border-radius: 10px;
+  max-width8: 280px;
+  max-height: 280px;
+  vertical-align: middle;
+  horizontal-align: middle;
+  display: table-cell;
 }
 
 .wrapper.list-mode .container{
@@ -101,4 +111,10 @@ header a.hide-list{
 
 .wrapper.list-mode .box{
 	width:100%;
+	display: table
+}
+
+.wrapper.list-mode .box h1.title{
+    vertical-align: middle;
+    display: table-cell;
 }
