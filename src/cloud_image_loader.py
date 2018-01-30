@@ -75,3 +75,17 @@ class CloudImageLoader(object):
         specie = json_obj['specie']
         img = json_obj['img']
         return specie, img
+
+    def get_data_file(self, file_name, file_size):
+        uname = os.environ['pcloud_uname'].replace('@', '%40')
+        password = os.environ['pcloud_password']
+        link = 'pcloud://' + uname + ':' + password + '@/'
+        with opener.open_fs(link) as pcloudfs:
+            specie, img = self._read_from_file(pcloudfs, file_name, file_size)
+
+        dict = {
+            'name': file_name,
+            'specie': specie,
+            'img': img,
+        }
+        return dict
