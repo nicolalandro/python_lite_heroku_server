@@ -29,7 +29,11 @@ $(document).ready(function(){
 });
 
 function success(data){
-    console.log("success");
+    var box = $( ".box[namel='" + data['name'] + "']" );
+    var h1 = box.find('.title')
+    str = h1.text();
+    h1.html(str + ' - ' + data['specie']);
+    box.find('img').attr('src', data['img']);
 };
 function complete(){
     console.log("complete");
