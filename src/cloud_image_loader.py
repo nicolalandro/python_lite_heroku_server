@@ -28,29 +28,8 @@ class CloudImageLoader(object):
 
     @property
     def get_dataset_list(self):
-        complete_file_list = list()
-
         filename_list = self._list_remote_folder()['metadata']['contents']
-
-        uname = os.environ['pcloud_uname'].replace('@', '%40')
-        password = os.environ['pcloud_password']
-        link = 'pcloud://' + uname + ':' + password + '@/'
-
-        with opener.open_fs(link) as pcloudfs:
-            i = 0
-            for file_data in filename_list:
-                file_name = file_data['name']
-                file_size = file_data['size']
-                specie, img = self._read_from_file(pcloudfs, file_name, file_size)
-
-                dict = {
-                    'name': file_name,
-                    'specie': specie,
-                    'img': img,
-                }
-                complete_file_list.append(dict)
-                i += 1
-        return complete_file_list
+        return filename_list
 
     def _get_progressive_number(self):
         try:
