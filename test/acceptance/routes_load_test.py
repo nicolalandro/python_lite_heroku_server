@@ -31,6 +31,16 @@ class RoutesResponseCorrectlyTestCase(unittest.TestCase):
         response = tester.post('/api/load_image_to_cloud', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
+    def test_api_load_data_from_cloud(self):
+        tester = main.app.test_client(self)
+        response = tester.post('/api/load_data_from_cloud',
+                               data='{"name":"0.json","size":125874}',
+                               content_type='application/json')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'image', response.data)
+        self.assertIn(b'specie', response.data)
+        self.assertIn(b'name', response.data)
+
 
 if __name__ == '__main__':
     unittest.main()
