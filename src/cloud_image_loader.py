@@ -34,8 +34,9 @@ class CloudImageLoader(object):
     def _get_progressive_number(self):
         try:
             lis = self._list_remote_folder()
-            numer_str = lis['metadata']['contents'][-1]['name'].replace('.json', '')
-            integer_progressive_number = int(numer_str) + 1
+            list1 = [int(x['name'].replace('.json', '')) for x in lis['metadata']['contents']]
+            list1.sort()
+            integer_progressive_number = list1[-1] + 1
             print(integer_progressive_number)
             return integer_progressive_number
         except:
