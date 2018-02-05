@@ -13,7 +13,7 @@ def run_server():
     """
     This run docker container. Esamples: shovel docker.run_server
     """
-    os.system('docker run -d -p 8000 flask_server')
+    os.system('docker run -d -p 5000:5000 flask_server')
 
 @task
 def stop_all():
