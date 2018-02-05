@@ -1,12 +1,14 @@
 import os
 from shovel import task
 
+
 @task
 def build():
     """
     This build docker app. Esamples: shovel docker.build
     """
     os.system('docker build -t flask_server .')
+
 
 @task
 def run_server():
@@ -15,12 +17,14 @@ def run_server():
     """
     os.system('docker run -d -p 5000:5000 flask_server')
 
+
 @task
 def stop_all():
     """
     This build stop all docker container. Esamples: shovel docker.stop_all
     """
     os.system('docker stop $(docker ps -a -q)')
+
 
 @task
 def remove_all():
@@ -29,8 +33,9 @@ def remove_all():
     """
     os.system('docker rm $(docker ps -a -q)')
 
+
 @task
-def ssh(container_id):
+def bash(container_id):
     """
     This provide a shell in docker. Esamples: shovel docker.ssh a0fa2c4438e3
     """
