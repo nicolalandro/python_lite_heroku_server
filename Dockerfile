@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 EXPOSE 8000
-CMD [ "./run_server.sh" ]
+CMD [ "./run_server_for_docker.sh" ]
