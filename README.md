@@ -11,7 +11,7 @@ This is a lite heroku server that run python
     $ pip install -r requirements.txt
     $ pip install -r requirements-test.txt
     
-## How to USE the pro
+## How to USE the heroku server bash
     $ heroku logs --app fishserverapi
     $ heroku run bash --app fishserverapi
     
@@ -23,3 +23,10 @@ This is a lite heroku server that run python
 
 ## Shovel
     $ shovel tasks
+
+## Docker
+* shovel docker.generate_docker_run_server
+  * insert your pcloud credential
+* shovel docker.build
+* shovel docker.run
+  * it still running to port 5000

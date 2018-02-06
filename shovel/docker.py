@@ -1,5 +1,31 @@
+import getpass
 import os
+import stat
 from shovel import task
+
+
+@task
+def generate_docker_run_server():
+    """
+    This build docker app. Esamples: shovel docker.generate_docker_run_server
+    """
+    run_server_file_name = 'run_server_from_docker.sh'
+    uname = input("insert your pcloud uname: ")
+    password = getpass.getpass("insert your pcloud password: ")
+
+    # nice to check password from pcloud
+
+    file = open(run_server_file_name, 'w')
+    file.write('#!/usr/bin/env bash\n')
+    file.write('export pcloud_uname=' + uname + '\n')
+    file.write('export pcloud_password=' + password + '\n')
+    file.write('gunicorn -b 0.0.0.0:5000 main:app --log-file=-')
+    file.close()
+
+    st = os.stat(run_server_file_name)
+    os.chmod(run_server_file_name, st.st_mode | stat.S_IEXEC)
+
+    os.system('ls | grep ' + run_server_file_name)
 
 
 @task
@@ -17,12 +43,14 @@ def run():
     """
     os.system('docker run -d -p 5000:5000 --name fish_service flask_server')
 
+
 @task
 def run_in_console():
     """
     This run docker container. Esamples: shovel docker.run
     """
     os.system('docker run -p 5000:5000 --name fish_service flask_server')
+
 
 @task
 def stop():
@@ -31,6 +59,7 @@ def stop():
     """
     os.system('docker stop $(docker ps -a -q -f "name=fish_service")')
 
+
 @task
 def stop_all():
     """
@@ -38,12 +67,14 @@ def stop_all():
     """
     os.system('docker stop $(docker ps -a -q)')
 
+
 @task
 def remove():
     """
     This build remove all docker container. Esamples: shovel docker.remove
     """
     os.system('docker rm $(docker ps -a -q -f "name=fish_service")')
+
 
 @task
 def remove_all():
