@@ -1,3 +1,5 @@
+[![GitHub issues](https://img.shields.io/github/issues/nicolalandro/python_lite_heroku_server.svg)](https://github.com/nicolalandro/python_lite_heroku_server/issues)
+
 # Python Lite Heroku Server
 This is a lite heroku server that run python
 
