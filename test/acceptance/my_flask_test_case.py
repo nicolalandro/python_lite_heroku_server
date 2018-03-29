@@ -19,7 +19,10 @@ class MyFlaskTestCase(LiveServerTestCase):
         return app
 
     def setUp(self):
-        self.browser = webdriver.Firefox()
+        # firefox_opt = webdriver.FirefoxOptions()
+        # firefox_opt.set_headless(False)
+        # self.browser = webdriver.Firefox(firefox_options=firefox_opt)
+        self.browser = webdriver.PhantomJS()
         self.app = main.app.test_client(self)
 
     def tearDown(self):
