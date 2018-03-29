@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+  - docker
+
+install: true
+
+before_script:
+  - docker pull python:3
+
+script:
+  - docker build -t app/test .
+  - docker run app/test
