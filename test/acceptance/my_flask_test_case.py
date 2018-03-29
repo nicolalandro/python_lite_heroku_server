@@ -1,4 +1,6 @@
 import time
+import unittest
+
 from flask_testing import LiveServerTestCase
 from selenium import webdriver
 
@@ -49,3 +51,7 @@ class MyFlaskTestCase(LiveServerTestCase):
         self.browser.find_element_by_class_name('close').click()
         time.sleep(2)
         assert len(self.browser.find_elements_by_id('error')) == 0
+
+
+if __name__ == '__main__':
+    unittest.main()
