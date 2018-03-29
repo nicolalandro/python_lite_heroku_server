@@ -10,4 +10,4 @@ before_script:
 
 script:
   - docker build -t app/test .
-  - docker run app/test
+  - docker run -it app/test python -m unittest discover -s test/acceptance --pattern=*.py 1>&2
