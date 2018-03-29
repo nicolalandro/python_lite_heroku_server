@@ -23,6 +23,12 @@ class MyFlaskTestCase(LiveServerTestCase):
     def tearDown(self):
         self.browser.quit()
 
+    def test_open_add_supervisioned_data_in_second_tab(self):
+        self.browser.get(self.get_server_url())
+        self.browser.find_elements_by_xpath("//div[@id = 'credits']/p/a")[0].click()
+        self.browser.switch_to.window(self.browser.window_handles[1])
+        self.assertEqual(self.browser.current_url, self.get_server_url() + '/add_supervisioned_data')
+
     def test_add_data_exception_without_image(self):
         self.browser.get(self.get_server_url() + '/add_supervisioned_data')
         self.browser.find_element_by_id('fish_specie').send_keys('test')
