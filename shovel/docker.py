@@ -41,15 +41,7 @@ def run():
     """
     This run docker container. Esamples: shovel docker.run
     """
-    os.system('docker run -d -p 5000:5000 --name fish_service flask_server')
-
-
-@task
-def run_in_console():
-    """
-    This run docker container. Esamples: shovel docker.run
-    """
-    os.system('docker run -p 5000:5000 --name fish_service flask_server')
+    os.system('docker run --name fish_service --rm -it flask_server')
 
 
 @task

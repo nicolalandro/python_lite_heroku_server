@@ -1,4 +1,6 @@
-FROM python:3
+FROM heroku/heroku:16
+
+RUN apt-get update && apt-get install python-pip -y
 
 COPY phantomjs /bin/
 

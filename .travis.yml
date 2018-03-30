@@ -6,7 +6,7 @@ services:
 install: true
 
 before_script:
-  - docker pull python:3
+  - docker pull heroku/heroku:16
 
 script:
   - docker build -t app/test .
