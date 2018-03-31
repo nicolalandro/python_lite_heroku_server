@@ -4,15 +4,10 @@ from pcloud import PyCloud
 from fs import opener
 
 
-def loadCredentialFromFilePath():
-    uname = os.environ['pcloud_uname']
-    password = os.environ['pcloud_password']
-    return uname, password
-
-
 class CloudImageLoader(object):
-    def __init__(self):
-        uname, password = loadCredentialFromFilePath()
+    def __init__(self, uname, password):
+        self.uname = uname
+        self.password = password
         self.pc = PyCloud(uname, password)
 
     def add_file(self, json_body):
@@ -57,8 +52,8 @@ class CloudImageLoader(object):
         return specie, img
 
     def get_data_file(self, file_name, file_size):
-        uname = os.environ['pcloud_uname'].replace('@', '%40')
-        password = os.environ['pcloud_password']
+        uname = self.uname.replace('@', '%40')
+        password = self.password
         link = 'pcloud://' + uname + ':' + password + '@/'
         with opener.open_fs(link) as pcloudfs:
             specie, img = self._read_from_file(pcloudfs, file_name, file_size)

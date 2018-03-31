@@ -1,9 +1,28 @@
-from flask import Flask, render_template, jsonify, request, json
+import os
+from unittest.mock import MagicMock
 
-# webapp
+from flask import Flask, render_template, jsonify, request
+
 from src.cloud_image_loader import CloudImageLoader
 
+# webapp
 app = Flask(__name__)
+
+
+def create_cloud_image_load():
+    if "test" in os.environ:
+        mock = MagicMock()
+        mock.get_dataset_list = []
+        mock.get_data_file = MagicMock(side_effect=(lambda x, y: []))
+        mock.add_file = MagicMock(side_effect=lambda x: [])
+        return mock
+    else:
+        uname = os.environ['pcloud_uname']
+        password = os.environ['pcloud_password']
+        return CloudImageLoader(uname, password)
+
+
+cloud_image_loader = create_cloud_image_load()
 
 
 @app.route('/')
@@ -18,7 +37,7 @@ def add_supervisioned_data():
 
 @app.route('/show_dataset')
 def show_dataset():
-    posts = CloudImageLoader().get_dataset_list
+    posts = cloud_image_loader.get_dataset_list
     return render_template('show_dataset.html', posts=posts)
 
 
@@ -30,7 +49,7 @@ def use_fish_ai():
 @app.route('/api/load_image_to_cloud', methods=['POST'])
 def load_image_to_cloud():
     json_content = str(request.get_json())
-    return jsonify(CloudImageLoader().add_file(json_content))
+    return jsonify(cloud_image_loader.add_file(json_content))
 
 
 @app.route('/api/load_data_from_cloud', methods=['POST'])
@@ -38,7 +57,7 @@ def load_data_from_cloud():
     json_request = request.get_json()
     name = json_request['name']
     size = json_request['size']
-    return jsonify(CloudImageLoader().get_data_file(name, size))
+    return jsonify(cloud_image_loader.get_data_file(name, size))
 
 
 if __name__ == '__main__':
