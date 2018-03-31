@@ -118,3 +118,5 @@ ENV/
 
 # mypy
 .mypy_cache/
+/test/acceptance/geckodriver.log
+/test/acceptance/ghostdriver.log
