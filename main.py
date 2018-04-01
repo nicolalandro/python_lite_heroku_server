@@ -1,5 +1,5 @@
 import os
-from unittest.mock import MagicMock
+from mock import MagicMock
 
 from flask import Flask, render_template, jsonify, request
 
