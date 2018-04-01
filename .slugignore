@@ -4,3 +4,4 @@ README.md
 run_server.sh
 run_server_for_docker.sh
 Dokerfile
+phantomjs
