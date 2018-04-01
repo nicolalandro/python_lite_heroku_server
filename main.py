@@ -13,7 +13,7 @@ def create_cloud_image_load():
     if "test" in os.environ:
         mock = MagicMock()
         mock.get_dataset_list = []
-        mock.get_data_file = MagicMock(side_effect=(lambda x, y: []))
+        mock.get_data_file = MagicMock(side_effect=(lambda x, y: "{'img':'data:image/png;base64','name':'0.json','specie':'test'}"))
         mock.add_file = MagicMock(side_effect=lambda x: [])
         return mock
     else:
