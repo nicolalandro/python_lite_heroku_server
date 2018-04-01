@@ -4,6 +4,9 @@ import unittest
 from flask_testing import LiveServerTestCase
 from selenium import webdriver
 
+import os
+
+os.environ['test'] = 'test'
 import main
 
 
