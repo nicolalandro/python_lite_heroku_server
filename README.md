@@ -10,6 +10,12 @@ This is a lite heroku server that run python
     $ pip install -r requirements.txt
     $ gunicorn main:app --log-file=-
 
+### Alternatively you can generate .sh file
+    $ pip install -r requirements.txt
+    $ shovel generate_run_server_script
+* insert your pcloud credential
+    $ ./run_server_script.sh
+
 ## How to install requirements for test
     $ pip install -r requirements.txt
     $ pip install -r requirements-test.txt
@@ -28,11 +34,9 @@ This is a lite heroku server that run python
     $ shovel tasks
 
 ## Docker
-* shovel docker.generate_docker_run_server
-  * insert your pcloud credential
 * shovel docker.build
 * shovel docker.run
-  * it still running to port 5000
+  * test execution
 
 # Time test webdriver
 * firefox set_headless(True)
