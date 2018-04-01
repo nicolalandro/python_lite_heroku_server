@@ -120,3 +120,4 @@ ENV/
 .mypy_cache/
 /test/acceptance/geckodriver.log
 /test/acceptance/ghostdriver.log
+run_server_script.sh
