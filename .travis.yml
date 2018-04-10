@@ -9,5 +9,5 @@ before_script:
   - docker pull heroku/heroku:16
 
 script:
-  - docker build -t app/test .
+  - docker build -t app/test -f ./Docker/test/Dockerfile .
   - docker run -it app/test python -m unittest discover -s test/acceptance --pattern=*.py 1>&2
