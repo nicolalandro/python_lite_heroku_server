@@ -44,9 +44,13 @@ This is a lite heroku server that run python
     $ shovel tasks
 
 ## Docker
-* shovel docker.build
-* shovel docker.run
-  * test execution
+* test execution
+  * shovel docker.test.build
+  * shovel docker.test.run
+* prod execution
+  * (modify the ENV in ./Docker/production/Dockerfile)
+  * shovel docker.prod.build
+  * shovel docker.prod.run
 
 # Time test webdriver
 * firefox set_headless(True)
