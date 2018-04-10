@@ -25,9 +25,19 @@ This is a lite heroku server that run python
     $ heroku run bash --app fishserverapi
     
 ## Deploy Steps
-* Config Variables on heroku
+* Config Variables on heroku app
   * pcloud_uname, with pcloud mail
   * pcloud_password, with pcloud password
+* (or use [terraform](https://www.terraform.io/))
+  * set heroku credential in ./terraform/provider.tf
+    * use ``` heroku auth:token ``` from command line to obtain your heroku api key
+  * change (optionally) the name of app in ./terraform/main.tf
+  * set your pcloud credential in config var into ./terraform/main.tf
+  * now execute
+    * terraform init
+    * terraform plan -out plan
+    * terraform apply plan
+    * (if you want destroy) terraform destroy
 * click deploy on heroku interface
 
 ## Shovel
