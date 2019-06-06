@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b097340415c44edda4e98a818f4172eb)](https://app.codacy.com/app/nicolalandro/python_lite_heroku_server?utm_source=github.com&utm_medium=referral&utm_content=nicolalandro/python_lite_heroku_server&utm_campaign=Badge_Grade_Dashboard)
 [![GitHub issues](https://img.shields.io/github/issues/nicolalandro/python_lite_heroku_server.svg)](https://github.com/nicolalandro/python_lite_heroku_server/issues)
 [![Build Status](https://travis-ci.org/nicolalandro/python_lite_heroku_server.svg?branch=master)](https://travis-ci.org/nicolalandro/python_lite_heroku_server)
 
