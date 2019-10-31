@@ -1,4 +1,4 @@
-Flask==0.12
+Flask==1.0
 gunicorn==19.7.1
 pcloud== 1.0a4
 fs==2.0.17
