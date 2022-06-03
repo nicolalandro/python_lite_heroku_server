@@ -2,7 +2,7 @@ Flask==0.12
 gunicorn==19.7.1
 pcloud== 1.0a4
 fs==2.0.17
-bottle==0.12.13
+bottle==0.12.20
 shovel==0.3.0
 argparse
 mock
